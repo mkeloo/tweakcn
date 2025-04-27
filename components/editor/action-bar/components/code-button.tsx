@@ -13,7 +13,7 @@ interface CodeButtonProps {
 export function CodeButton({ onCodeClick }: CodeButtonProps) {
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Button
           variant="ghost"
           size="sm"

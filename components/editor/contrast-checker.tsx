@@ -166,9 +166,9 @@ const ContrastChecker = ({ currentStyles }: ContrastCheckerProps) => {
     filter === "all"
       ? colorPairsToCheck
       : colorPairsToCheck.filter((pair) => {
-          const result = getContrastResult(pair.id);
-          return result && result.contrastRatio < MIN_CONTRAST_RATIO;
-        });
+        const result = getContrastResult(pair.id);
+        return result && result.contrastRatio < MIN_CONTRAST_RATIO;
+      });
 
   // Group color pairs by category
   const categoryLabels: Record<ColorCategory, string> = {
@@ -188,9 +188,9 @@ const ContrastChecker = ({ currentStyles }: ContrastCheckerProps) => {
 
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger asChild>
         <Tooltip>
-          <TooltipTrigger>
+          <TooltipTrigger asChild>
             <Button
               variant="ghost"
               size="sm"
@@ -199,8 +199,8 @@ const ContrastChecker = ({ currentStyles }: ContrastCheckerProps) => {
               <Contrast className="h-4 w-4" />
               <span className="text-sm hidden md:block">Contrast</span>
             </Button>
-            <TooltipContent>Check contrast accessibility</TooltipContent>
           </TooltipTrigger>
+          <TooltipContent>Check contrast accessibility</TooltipContent>
         </Tooltip>
       </DialogTrigger>
       <DialogContent className="max-w-screen-lg max-h-[90vh]">

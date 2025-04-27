@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import { Moon, Sun } from "lucide-react";
 import * as SwitchPrimitives from "@radix-ui/react-switch";
 import { useTheme } from "@/components/theme-provider";
@@ -9,6 +12,15 @@ import {
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   const handleThemeToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
     const { clientX: x, clientY: y } = event;
@@ -18,7 +30,7 @@ export function ThemeToggle() {
   return (
     <div className="px-2">
       <Tooltip>
-        <TooltipTrigger>
+        <TooltipTrigger asChild>
           <SwitchPrimitives.Root
             checked={theme === "dark"}
             onClick={handleThemeToggle}

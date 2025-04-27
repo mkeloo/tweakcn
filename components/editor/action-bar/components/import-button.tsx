@@ -13,7 +13,7 @@ interface ImportButtonProps {
 export function ImportButton({ onImportClick }: ImportButtonProps) {
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Button
           variant="ghost"
           size="sm"

@@ -191,10 +191,10 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({
       search.trim() === ""
         ? presetNames
         : Object.entries(presets)
-            .filter(([_, preset]) =>
-              preset.label?.toLowerCase().includes(search.toLowerCase())
-            )
-            .map(([name]) => name);
+          .filter(([_, preset]) =>
+            preset.label?.toLowerCase().includes(search.toLowerCase())
+          )
+          .map(([name]) => name);
 
     // Separate saved and default themes
     const savedThemesList = filteredList.filter(
@@ -233,7 +233,7 @@ const ThemePresetSelect: React.FC<ThemePresetSelectProps> = ({
         direction === "next"
           ? (currentIndex + 1) % filteredPresets.length
           : (currentIndex - 1 + filteredPresets.length) %
-            filteredPresets.length;
+          filteredPresets.length;
       onPresetChange(filteredPresets[newIndex]);
     },
     [currentIndex, filteredPresets, onPresetChange]

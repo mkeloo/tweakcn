@@ -14,7 +14,7 @@ interface ResetButtonProps {
 export function ResetButton({ onReset, isDisabled }: ResetButtonProps) {
   return (
     <Tooltip>
-      <TooltipTrigger>
+      <TooltipTrigger asChild>
         <Button
           variant="ghost"
           size="sm"
